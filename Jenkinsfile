@@ -24,5 +24,27 @@ pipeline {
                 }
             }
         }
+
+         stage('Run') {
+			steps{
+				echo "Run image"
+				sh returnStdout: true, script: "docker run --rm -d --name ${JOB_NAME} -p 81:7264 ${img}"
+			}
+		}
+
+        stage('Release') {
+            steps {
+				script {
+					echo "Push to docker hub"
+                    docker.withRegistry( 'https://registry.hub.docker.com ', registryCredential )  {
+                            echo "${img}"
+                            
+							dockerImg.push()
+							
+						}
+                }
+            }
+
+        }
     }
 }
