@@ -2,9 +2,9 @@ pipeline {
     agent any
    
 	environment {
-		registry = "snehalhhande/JenkinsTrial"
+		registry = "snehalhande42/hospital_appointment_booking_system"
 		img = "$registry" + ":${env.BUILD_ID}"
-		//registryCredential = 'docker-hub-login' 
+		registryCredential = 'docker-hub-login' 
     }	
 
     stages {
