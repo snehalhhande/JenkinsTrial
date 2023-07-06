@@ -38,7 +38,7 @@ pipeline {
          stage('Run') {
 			steps{
 				echo "Run image"
-				sh returnStdout: true, script: "docker run --rm -d --name ${JOB_NAME} -p 81:82 ${img}"
+				sh returnStdout: true, script: "docker run --rm -d --name ${JOB_NAME} -p 82:80 ${img}"
 			}
 		}
 
