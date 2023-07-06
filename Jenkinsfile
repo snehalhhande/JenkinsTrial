@@ -2,7 +2,7 @@ pipeline {
     agent any
    
 	environment {
-		registry = "snehalhande42/hospital_appointment_booking_system"
+		registry = "snehalhande42/docker-apache"
 		img = "$registry" + ":${env.BUILD_ID}"
 		registryCredential = 'docker-hub-login' 
     }	
